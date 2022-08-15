@@ -1,0 +1,11 @@
+    1) For an Attribute
+Book -> ISBN: can't be null, empty, has 2 acceptable formats +
+some modifications in case of older format
+    2) Unique
+Book -> ISBN is unique, implemented with HashMap
+    3) Subset
+2 associations: Book belongs to Collection / Book is a cover of Collection
+    4) Ordered
+Association (composition) between Order and Customer. All Orders are sorted for Customer:
+  - by date
+  - by number

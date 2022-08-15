@@ -1,0 +1,16 @@
+	Abstract class / polymorphism
+Book -> EBook, VIPBook -> getCost()
+
+     Overlapping inheritance
+Book -> different genres (as roles)  -> different age restriction + additional logic for Bestseller
+
+    Dynamic
+Order - > Processing, Shipping, Closed
+
+    Multi-inheritance
+Product -> Book + Music (implements IAudio) -> AudioBook
+
+    Multi-aspect inheritance
+Customer:
+ - type of legal entity (B2B / B2C) - normal inheritance
+ - region (external, internal (in Poland)) - flattened inheritance

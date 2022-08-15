@@ -1,0 +1,32 @@
+    1) For an Attribute
+Book -> ISBN: can't be null, empty, has 2 acceptable formats +
+some modifications in case of older format
+    2) Unique
+Book -> ISBN is unique, implemented with HashMap
+    3) Subset
+2 associations: Book belongs to Collection / Book is a cover of Collection
+    4) Ordered
+Association (composition) between Order and Customer. All Orders are sorted for Customer:
+  - by date (from oldest to newest)
+  - by number (desc order)
+  // Order{orderNumber=1, creationDate=2022-05-22T18:32:26.608360}
+     Order{orderNumber=3, creationDate=2022-05-22T18:32:28.623172}
+     Order{orderNumber=2, creationDate=2022-05-22T18:32:28.623172}
+    5)Bag
+*-* association Book - Comment - Customer
+implemented as regular *-* but without isUnique() check
+    6) XOR
+2 associations: Author sign contract with EPublisher or with PublishingHouse
+When creating an Author specify EP or PH
+changeEP()/changePH() control removing old associations and creating new ones
+    7) Custom Constraint
+*-* Association between Book and Order. Each Book has a Priority (how fast we need to sell smth):
+    for LOW - min cost is 80 and min ordered quantity i 10
+    for MEDIUM - min cost is 50 and min ordered quantity is 5
+    for HIGH - min cost is 30 and min quantity is 1
+
+When creating OrderedBook we should check if:
+ - it is unique
+ - total cost (book.cost * quantity) is not less than set for its Priority
+ - total Quantity is not less than set for its Priority
+    !!!IN OTHER CASE ASSOCIATION CAN'T BE CREATED!!!
